@@ -1,0 +1,5 @@
+# Pyre type checker
+.idea/
+
+# Environments
+.env
