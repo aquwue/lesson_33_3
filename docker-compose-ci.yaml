@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: sermalenk/skypro-front:base
+    ports:
+      - 80:80
+    depends_on:
+      - api
+  api:
+    image: sermalenk/django-app:$GITHUB_REF_NAME-$GITHUB_RUN_ID
+    depends_on:
+      postgres:
+        condition: service_healthy
+      migrations:
+        condition: service_completed_successfully
+    volumes:
+      - ./.docker_env:/app/.env
+  migrations:
+    build:
+      context: .
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./.docker_env:/app/.env
+    command: python manage.py migrate
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: td
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - ./postgres-data:/var/Lib/postgresql/data
