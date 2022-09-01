@@ -1,5 +1,6 @@
 version: '3.8'
 
+
 services:
   frontend:
     image: sermalenk/skypro-front:base
@@ -29,8 +30,8 @@ services:
   postgres:
     image: postgres:latest
     environment:
-      POSTGRES_PASSWORD: 123
-      POSTGRES_DB: td
+      POSTGRES_PASSWORD: DB_PASSWORD
+      POSTGRES_DB: DB_NAME
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 5s
