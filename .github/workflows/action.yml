@@ -7,11 +7,11 @@ jobs:
           - name: clone code
             uses: action/checkout@2
           - name: docker build
-            run: docker build -t sermalenk/skypro_smalenko_app:$GITHUB_REF_NAME-$GITHUB_RUN_ID .
+            run: docker build -t aquwue/lesson33_3:$GITHUB_REF_NAME-$GITHUB_RUN_ID .
           - name: docker login
-            run: echo ${{ secrets.DOCKER_TOKEN }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+              run: echo ${{ secrets.DOCKER_TOKEN }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
           - name: docker push
-            run: docker push aquwue/skypro_sermalenko_app:$GITHUB_REF_NAME-$GITHUB_RUN_ID
+            run: docker push aquwue/lesson33_3:$GITHUB_REF_NAME-$GITHUB_RUN_ID
     deploy:
         runs_on: ubuntu-latest
         steps:
@@ -34,7 +34,7 @@ jobs:
             with:
                 host: ${{ secrets.HOST }}
                 username: ${{ secrets.USERNAME }}
-                password: ${{ secrets.PASSWORD }}
+#                password: ${{ secrets.PASSWORD }}
                 script: |
                     cd flask_app_ci
                     echo ${{ secrets.PASSWORD }} | sudo -S docker-compose up -d
