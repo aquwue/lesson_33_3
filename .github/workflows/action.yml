@@ -18,7 +18,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: clone code
-          uses: action/checkout@2
+          uses: action/checkout@v2
         - name: render configs
           run: |
             mkdir deploy
