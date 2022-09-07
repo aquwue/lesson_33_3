@@ -5,7 +5,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - name: clone code
-            uses: action/checkout@м2
+            uses: action/checkout@v2
           - name: docker build
             run: docker build -t aquwue/lesson33_3:$GITHUB_REF_NAME-$GITHUB_RUN_ID .
           - name: docker login
