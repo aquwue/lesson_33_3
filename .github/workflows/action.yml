@@ -2,8 +2,7 @@ name: Build and deploy workflow`
 on: [push]
 jobs:
     build_and_push:
-        runs-on: ubunt-latest
-        needs: build_and_push
+        runs-on: ubuntu-latest
         steps:
           - name: clone code
             uses: action/checkout@2
@@ -15,6 +14,7 @@ jobs:
             run: docker push aquwue/lesson33_3:$GITHUB_REF_NAME-$GITHUB_RUN_ID
     deploy:
       runs_on: ubuntu-latest
+      needs: build_and_push
       steps:
         - name: clone code
           uses: action/checkout@2
