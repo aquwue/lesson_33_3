@@ -26,8 +26,8 @@ jobs:
         - name: copy files to server
           uses: appleboy/scp-action@master
           with:
-             host: ${{ secrets.HOST }}
-             username: ${{ secrets.USERNAME }}
+             host: 51.250.23.151
+             username: alex
              source: "deploy/docker-compose.yaml"
 #             key: ${{ secrets.PRIVATE_KEY }}
              target: "flask_app_ci"
