@@ -22,13 +22,13 @@ jobs:
         - name: render configs
           run: |
             mkdir deploy
-            cat docker-compose-ci.yaml | envsubst > deploy/docker-compose.yaml
+            cat docker-compose-ci.yaml | envsubst > lesson_33_3/docker-compose.yaml
         - name: copy files to server
           uses: appleboy/scp-action@master
           with:
-             host: 51.250.23.151
-             username: alex
-             source: "deploy/docker-compose.yaml"
+             host: ${{ secrets.HOST }}
+             username: ${{ secrets.USERNAME }}
+             source: "lesson_33_3/docker-compose.yaml"
 #             key: ${{ secrets.PRIVATE_KEY }}
              target: "flask_app_ci"
              strip_components: 1
