@@ -28,7 +28,7 @@ jobs:
           with:
              host: ${{ secrets.HOST }}
              username: ${{ secrets.USERNAME }}
-             source: "lesson_33_3/docker-compose.yaml"
+             source: "deploy/docker-compose.yaml"
 #             key: ${{ secrets.PRIVATE_KEY }}
              target: "flask_app_ci"
              strip_components: 1
@@ -41,4 +41,4 @@ jobs:
 #              password: ${{ secrets.PASSWORD }}
               script: |
                   cd flask_app_ci
-#                  echo ${{ secrets.PASSWORD }} | sudo -S docker-compose up -d
+                  echo ${{ secrets.PASSWORD }} | sudo -S docker-compose up -d
