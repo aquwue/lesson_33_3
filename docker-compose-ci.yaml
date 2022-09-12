@@ -3,7 +3,7 @@ version: '3.8'
 
 services:
   frontend:
-    image: sermalenk/skypro-front:base
+    image: aquwue/todo-list-frontend:base
     ports:
       - 80:80
     depends_on:
@@ -30,8 +30,8 @@ services:
   postgres:
     image: postgres:latest
     environment:
-      POSTGRES_PASSWORD: DB_PASSWORD
-      POSTGRES_DB: DB_NAME
+      POSTGRES_PASSWORD: todolist
+      POSTGRES_DB: todolist
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 5s

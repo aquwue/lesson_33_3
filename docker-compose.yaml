@@ -33,8 +33,8 @@ services:
   postgres:
     image: postgres:alphine
     environment:
-      POSTGRES_PASSWORD: DB_PASSWORD
-      POSTGRES_DB: DB_NAME
+      POSTGRES_PASSWORD: todolist
+      POSTGRES_DB: todolist
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 5s
