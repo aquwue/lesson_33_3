@@ -26,7 +26,7 @@ services:
         condition: service_healthy
     volumes:
       - ./.docker_env:/app/.env
-    command: python manage.py migrate | docker build -t docker-whale .
+    command: python manage.py migrate
 
   postgres:
     image: postgres:latest
