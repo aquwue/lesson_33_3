@@ -3,7 +3,7 @@ version: '3.8'
 services:
   frontend:
     build:
-      dockerfile: todo-list-frontend/Dockerfile
+      dockerfile: Dockerfile
       context: todo-list-frontend
     ports:
       - 8034:80
