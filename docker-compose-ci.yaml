@@ -20,7 +20,7 @@ services:
   migrations:
     image: aquwue/lesson33_3
     build:
-      context: .
+      context: https://github.com/aquwue/lesson_33_3/blob/526350f4e0c70f2a589a946b81b6e6bf48f994fd/Dockerfile
     depends_on:
       postgres:
         condition: service_healthy
