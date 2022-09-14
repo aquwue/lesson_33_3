@@ -1,4 +1,4 @@
-#version: '3.8'
+version: '3.8'
 
 
 services:
@@ -18,7 +18,7 @@ services:
     volumes:
       - ./.docker_env:/app/.env
   migrations:
-    image: aquwue/lesson_33_3
+    image: aquwue/lesson33_3
     build:
       context: .
       dockerfile: docker-compose.yaml
