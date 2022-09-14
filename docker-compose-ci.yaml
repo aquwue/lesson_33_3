@@ -21,7 +21,7 @@ services:
     image: aquwue/lesson_33_3
     build:
       context: .
-      dockerfile: docker-compose-ci.yaml
+      dockerfile: docker-compose.yaml
     depends_on:
       postgres:
         condition: service_healthy
