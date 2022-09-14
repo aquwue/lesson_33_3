@@ -20,13 +20,13 @@ services:
   migrations:
     image: aquwue/lesson_33_3
     build:
-      context: .
+      context: lesson_33_3
     depends_on:
       postgres:
         condition: service_healthy
     volumes:
       - ./.docker_env:/app/.env
-    command: python todolist/manage.py migrate
+    command: python manage.py migrate
 
   postgres:
     image: postgres:latest
