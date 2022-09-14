@@ -20,7 +20,7 @@ services:
   migrations:
     image: aquwue/lesson_33_3
     build:
-      context: lesson_33_3
+      context: .
       dockerfile: docker-compose-ci.yaml
     depends_on:
       postgres:
